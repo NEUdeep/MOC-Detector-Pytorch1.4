@@ -30,10 +30,10 @@
    
     For other pytorch version, you can manually open `torch/nn/functional.py` and find the line with `torch.batch_norm` and replace the `torch.backends.cudnn.enabled` with `False`. 
 
-3. Clone this repo (${MOC_ROOT} is the path to clone):
+3. Clone this repo:
 
    ~~~powershell
-   git clone https://github.com/MCG-NJU/MOC-Detector.git ${MOC_ROOT}
+   git clone https://github.com/NEUdeep/MOC-Detector-Pytorch1.4
    ~~~
 
 
