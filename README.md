@@ -32,15 +32,16 @@
 ## News & Updates
 January. 23, 2021 - Update for pytorch1.4 with cuda10.
 
-Jul. 08, 2020 -    First release of codes.
-
-Jul. 24, 2020 -    Update ucf-pretrained JHMDB model and speed test codes.
-
-Aug. 02, 2020 - Update visualization codes. Extract frames from a video and get the detection result (like above gifs).
+Aug. 23, 2020 - We upload MOC with ResNet-18 in [Backbone](readme/Backbone.md).
 
 Aug. 17, 2020 - Now our visualization supports instance level detection results (reflects video mAP).
 
-Aug. 23, 2020 - We upload MOC with ResNet-18 in [Backbone](readme/Backbone.md).
+Aug. 02, 2020 - Update visualization codes. Extract frames from a video and get the detection result (like above gifs).
+
+Jul. 24, 2020 -    Update ucf-pretrained JHMDB model and speed test codes.
+
+Jul. 08, 2020 -    First release of codes.
+
 
 <br/>
 
