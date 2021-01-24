@@ -27,7 +27,7 @@ The training step will take a long time, we recommend to use `byobu` or `screen`
 run
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 12 --lr_step 6,8 --save_all
+python train.py --K 7 --exp_id Train_K7_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 12 --lr_step 6,8 --save_all
 
 # ==============Args==============
 #
@@ -61,7 +61,7 @@ In our imagenet pretrained experiment, we use model after 11 epoch as RGB model.
 run
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_flow_coco --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 10 --lr_step 6,8 --ninput 5 --save_all
+python train.py --K 7 --exp_id Train_K7_flow_coco --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 10 --lr_step 6,8 --ninput 5 --save_all
 
 # additional scripts for flow model
 # --ninput 5
@@ -86,7 +86,7 @@ In our imagenet pretrained experiment, we use model after 10 epoch as FLOW model
 run
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_rgb_coco_jhmdb_s1 --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 20 --lr_step 6,8 --dataset hmdb --split 1
+python train.py --K 7 --exp_id Train_K7_rgb_coco_jhmdb_s1 --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 20 --lr_step 6,8 --dataset hmdb --split 1
 
 # additional scripts for jhmdb
 # --dataset hmdb
@@ -102,7 +102,7 @@ In our experiment, we use model after 20 epoch as RGB model for each split.
 run
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_flow_coco_jhmdb_s1 --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 20 --lr_step 9,12 --ninput 5 --dataset hmdb --split 1
+python train.py --K 7 --exp_id Train_K7_flow_coco_jhmdb_s1 --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 20 --lr_step 9,12 --ninput 5 --dataset hmdb --split 1
 ```
 
 In our experiment, we use model after 20 epoch as FLOW model for each split.
@@ -114,10 +114,10 @@ In our experiment, we use model after 20 epoch as FLOW model for each split.
 **But when we reproduce our experiments on another GPU server, we find the training is not stable on JHMDB dataset, so we use `--auto_stop` to eliminate the instability. Because JHMDB dataset is very small and easy to overfit.**
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_rgb_coco_jhmdb_s1 --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 25 --lr_step 8,16 --dataset hmdb --split 1 --auto_stop
+python train.py --K 7 --exp_id Train_K7_rgb_coco_jhmdb_s1 --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 25 --lr_step 8,16 --dataset hmdb --split 1 --auto_stop
 
 
-python3 train.py --K 7 --exp_id Train_K7_flow_coco_jhmdb_s1 --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 25 --lr_step 12,20 --ninput 5 --dataset hmdb --split 1 --auto_stop
+python train.py --K 7 --exp_id Train_K7_flow_coco_jhmdb_s1 --flow_model $PATH_TO_SAVE_MODEL --batch_size 62 --master_batch 6 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 25 --lr_step 12,20 --ninput 5 --dataset hmdb --split 1 --auto_stop
 ```
 
 It will save the model in `model_best.pth`.
@@ -143,7 +143,7 @@ Also recommend using `--auto stop`.
 Due to reducing tubelet length K, we can use a large training batch size. So the training scripts change like this:
 
 ```bash
-python3 train.py --K 5 --exp_id Train_K5_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 108 --master_batch 10 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 13 --lr_step 4,8 --save_all
+python train.py --K 5 --exp_id Train_K5_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 108 --master_batch 10 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 13 --lr_step 4,8 --save_all
 ```
 
 <br/>
@@ -155,7 +155,7 @@ python3 train.py --K 5 --exp_id Train_K5_rgb_coco --rgb_model $PATH_TO_SAVE_MODE
 If the code encounters some running error, we can use following step to recovery training from specific epoch:
 
 ```bash
-python3 train.py --K 7 --exp_id Train_K7_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 13 --lr_step 6,8 --save_all --load_model ? --start_epoch ?
+python train.py --K 7 --exp_id Train_K7_rgb_coco --rgb_model $PATH_TO_SAVE_MODEL --batch_size 63 --master_batch 7 --lr 5e-4 --gpus 0,1,2,3,4,5,6,7 --num_workers 16 --num_epochs 13 --lr_step 6,8 --save_all --load_model ? --start_epoch ?
 ```
 
 <br/>

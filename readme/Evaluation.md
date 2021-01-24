@@ -48,10 +48,10 @@ Firstly, we will get detection results using previous models.
 please run
 
 ~~~bash
-python3 det.py --task normal --K 7 --gpus 0,1,2,3,4,5,6,7 --batch_size 94 --master_batch 10 --num_workers 8 --rgb_model ../experiment/result_model/$PATH_TO_RGB_MODEL --flow_model ../experiment/result_model/$PATH_TO_FLOW_MODEL --inference_dir $INFERENCE_DIR --flip_test --ninput 5
+python det.py --task normal --K 7 --gpus 0,1,2,3,4,5,6,7 --batch_size 94 --master_batch 10 --num_workers 8 --rgb_model ../experiment/result_model/$PATH_TO_RGB_MODEL --flow_model ../experiment/result_model/$PATH_TO_FLOW_MODEL --inference_dir $INFERENCE_DIR --flip_test --ninput 5
 
 # handle remained chunk size
-python3 det.py --task normal --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 2 --rgb_model ../experiment/result_model/dla34_K7_rgb_coco.pth --flow_model ../experiment/result_model/dla34_K7_flow_coco.pth --inference_dir /data0/liyixuan/speed_test/test --flip_test --ninput 5
+python det.py --task normal --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 2 --rgb_model ../experiment/result_model/dla34_K7_rgb_coco.pth --flow_model ../experiment/result_model/dla34_K7_flow_coco.pth --inference_dir /data0/liyixuan/speed_test/test --flip_test --ninput 5
 
 # ==============Args==============
 #
@@ -105,7 +105,7 @@ If you want a faster evaluation, please choose a small `--N` during inference st
 1. For frame mAP, please run:
 
 ```bash
-python3 ACT.py --task frameAP --K 7 --th 0.5 --inference_dir $INFERENCE_DIR
+python ACT.py --task frameAP --K 7 --th 0.5 --inference_dir $INFERENCE_DIR
 ```
 
 Choose a small `--N` when inference will speed up this step. More details an be found in [Tips.md](Tips.md) #2.
@@ -115,17 +115,17 @@ Choose a small `--N` when inference will speed up this step. More details an be 
 2. For video mAP, please build tubes first:
 
 ```bash
-python3 ACT.py --task BuildTubes --K 7 --inference_dir $INFERENCE_DIR
+python ACT.py --task BuildTubes --K 7 --inference_dir $INFERENCE_DIR
 ```
 
 Then, compute video mAP:
 
 ```bash
 # change --th
-python3 ACT.py --task videoAP --K 7 --th 0.2 --inference_dir $INFERENCE_DIR
+python ACT.py --task videoAP --K 7 --th 0.2 --inference_dir $INFERENCE_DIR
 
 # 0.5:0.95
-python3 ACT.py --task videoAP_all --K 7 --inference_dir $INFERENCE_DIR 
+python ACT.py --task videoAP_all --K 7 --inference_dir $INFERENCE_DIR 
 ```
 
 <br/>
@@ -160,7 +160,7 @@ Each backbone feature will compute only once and save in a buffer, which avoids 
 please run:
 
 ```bash
-python3 det.py --task stream --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 0 --rgb_model ../experiment/result_model/$PATH_TO_RGB_MODEL --inference_dir $INFERENCE_DIR --dataset hmdb --split 1 --flip_test
+python det.py --task stream --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 0 --rgb_model ../experiment/result_model/$PATH_TO_RGB_MODEL --inference_dir $INFERENCE_DIR --dataset hmdb --split 1 --flip_test
 ```
 
 We use JHMDB because its valuation set is small.
@@ -176,7 +176,7 @@ It can be modified for real-time video stream.
 We provide codes for testing our online detection FPS (Tubelets Per Seconds, actually).
 
 ```bash
-python3 det.py --task speed_test --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 0
+python det.py --task speed_test --K 7 --gpus 0 --batch_size 1 --master_batch 1 --num_workers 0
 --rgb_model ../experiment/result_model/$PATH_TO_RGB_MODEL --inference_dir $INFERENCE_DIR
 ```
 
