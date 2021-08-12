@@ -1,0 +1,8 @@
+numpy
+tensorboardX
+progress
+h5py
+opencv-python
+Cython
+matplotlib
+scipy
